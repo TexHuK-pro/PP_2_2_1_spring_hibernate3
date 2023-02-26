@@ -34,11 +34,7 @@ public class UserDaoImp implements UserDao {
         query.setParameter("model", model);
         query.setParameter("series", series);
 
-        String firstName = query.getSingleResult().getUser().getFirstName();
-        String lastName = query.getSingleResult().getUser().getLastName();
-        String email = query.getSingleResult().getUser().getEmail();
-
-        return new User(firstName, lastName, email);
+        return query.getSingleResult().getUser();
     }
 
 
